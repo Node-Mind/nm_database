@@ -1,0 +1,10 @@
+FROM redis/redis-stack:latest 
+
+WORKDIR /db
+
+COPY redis.conf ./redis.conf
+COPY users.acl ./users.acl
+
+EXPOSE 6379
+
+CMD [ "redis-stack-server", "redis.conf" ]
